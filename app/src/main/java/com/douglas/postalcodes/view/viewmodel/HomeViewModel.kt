@@ -40,6 +40,8 @@ class HomeViewModel @Inject constructor() : ViewModel() {
     private val _postalCodeListState = MutableStateFlow<ModelStates>(ModelStates.Idle)
     val postalCodeListState = _postalCodeListState.asStateFlow()
 
+    private lateinit var csvFile: File
+
 
     fun scheduleFetch(context: Context) {
         _downloadState.value =
@@ -53,16 +55,18 @@ class HomeViewModel @Inject constructor() : ViewModel() {
         if (!file.exists()) {
             downloadCsvFile(file)
         } else {
+            val finalFile = File("${file.absoluteFile}$FILE_NAME")
             _downloadState.value =
-                DownloadStates.Downloaded(File("${file.absoluteFile}$FILE_NAME"))
+                DownloadStates.Downloaded(finalFile)
+            csvFile = finalFile
         }
     }
 
-    fun parseCsv(file: File) {
+    fun parseCsv() {
         val postalCodeList = arrayListOf<PostalCodeModel>()
         viewModelScope.launch {
             _postalCodeListState.value = ModelStates.Loading
-            csvReader().open(file) {
+            csvReader().open(csvFile) {
                 postalCodeList.addAll(toPostalCodeList())
             }
         }.invokeOnCompletion {
@@ -102,8 +106,8 @@ class HomeViewModel @Inject constructor() : ViewModel() {
         val finalFile = File("${file.absoluteFile}$FILE_NAME")
         try {
             inputStream.toFile(finalFile.absolutePath)
-
             _downloadState.value = DownloadStates.Success(finalFile)
+            csvFile = finalFile
         } catch (e: IOException) {
             _downloadState.value = DownloadStates.Failure
         }

@@ -6,17 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/gray">
 
-    <Button
-        android:id="@+id/permission_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginVertical="24dp"
-        android:text="@string/grant_permissions"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <TextView
         android:id="@+id/not_found"
         android:layout_width="match_parent"
@@ -34,9 +23,8 @@
         android:id="@+id/postal_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="24dp"
+        android:layout_marginTop="12dp"
         android:gravity="center"
-        android:paddingBottom="12dp"
         android:visibility="gone"
         android:background="@color/light_gray"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,6 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:clipToPadding="true"
+        android:layout_marginTop="8dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,7 +60,7 @@
         android:id="@+id/loading_progress_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/loading_file"
+        android:text="@string/parsing_file"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
