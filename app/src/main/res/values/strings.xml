@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Postal Codes</string>
+    <string name="fail_to_download">Download Failed</string>
+    <string name="loading_file">Loading...</string>
+    <string name="file_downloaded">Already downloaded, parsing.</string>
+    <string name="grant_permissions">Continue after permission is granted</string>
+    <string name="show_details">Locale: %s\nArtery type: %s\nArtery name: %s\nDesignation: %s\nPostal Code: %s</string>
+    <string name="no_address">Sem nome</string>
+    <string name="search_postal_code">Search for locales and codes</string>
+    <string name="not_found">No results for this search</string>
+</resources>
