@@ -1,2 +1,2 @@
 # PostalCodes
-Sample for getting showing postal codes from a Github Repository
+Sample for getting showing postal codes from CSV file.
